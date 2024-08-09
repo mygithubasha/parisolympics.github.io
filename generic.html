@@ -1,0 +1,166 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Generic Page - Massively by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Massively</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">SQL</a></li>
+							<li class="active"><a href="generic.html">SQL</a></li>
+							<li><a href="elements.html">Elements Reference</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<span class="date">April 25, 2017</span>
+									<h1>SQL EXPLANATION<br />
+									</h1>
+									<p>In SQL, a subquery, also known as an inner query or nested query, is a query embedded within another query. <br>
+										The subquery can be part of a `SELECT`, `INSERT`, `UPDATE`, or `DELETE` statement, or part of another subquery. 
+										<br>Its primary role is to provide a set of data that can be used in the main query.</p>
+
+										<p><b>Types of Subqueries</b></p>
+										<b>1. Single-row Subquery</b> Returns a single row with one or more columns.<br>
+										2. Multiple-row Subquery: Returns multiple rows with one or more columns.<br>
+										3. Multiple-column Subquery: Returns multiple columns from a single row.<br>
+										
+										### Uses of Subqueries
+										- **Filtering Results:** Used in the `WHERE` or `HAVING` clause to filter data based on the results of the subquery.
+										- **Data Comparison:** Compare values with another set of values returned by the subquery.
+										- **Inserting or Updating Data:** Insert data into a table or update data in a table based on the results of a subquery.
+										
+										### Examples
+										
+										#### Example 1: Simple Subquery in `WHERE` Clause
+										Find employees whose salary is above the average salary in the company:
+										```sql
+										SELECT first_name, last_name
+										FROM employees
+										WHERE salary > (SELECT AVG(salary) FROM employees);
+										```
+										In this example, the subquery `(SELECT AVG(salary) FROM employees)` calculates the average salary. The main query then selects employees whose salary is greater than this average.
+										
+										#### Example 2: Subquery in `FROM` Clause (Derived Table)
+										Find the highest salary in each department and list them along with department names:
+										```sql
+										SELECT d.department_name, t.max_salary
+										FROM departments d
+										JOIN (
+											SELECT department_id, MAX(salary) AS max_salary
+											FROM employees
+											GROUP BY department_id
+										) t ON d.department_id = t.department_id;
+										```
+										Here, the subquery is used as a derived table to find the maximum salary per department, and the main query joins this result with the departments table to get the department names.
+										
+										### Considerations
+										- **Performance:** Subqueries can sometimes be slower than equivalent joins, especially if not properly indexed.
+										- **Correlated vs. Non-Correlated:** A correlated subquery depends on the outer query and is evaluated once for each row processed by the outer query. A non-correlated subquery is independent and is evaluated only once.
+										
+										Understanding and using subqueries effectively can enhance your SQL queries' functionality and efficiency, especially for complex data retrieval tasks.</p>
+								</header>
+								<div class="image main"><img src="images/pic01.jpg" alt="" /></div>
+								<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur sapien risus, commodo eget turpis at, elementum convallis enim turpis, lorem ipsum dolor sit amet nullam.</p>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus. Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum.</p>
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<section>
+							<form method="post" action="#">
+								<!--<div class="fields">-->
+									<!--<div class="field">-->
+										<!--<label for="name">Name</label>-->
+										<!--<input type="text" name="name" id="name" />-->
+									</div>
+									<!--<div class="field">-->
+										<!--<label for="email">Email</label>-->
+										<!--<input type="text" name="email" id="email" />-->
+									</div>
+									<!--<div class="field">-->
+										<!--<label for="message">Message</label>-->
+										<!--<textarea name="message" id="message" rows="3"></textarea>-->
+									</div>
+								</div>
+								<ul class="actions">
+									<!--<li><input type="submit" value="Send Message" /></li>-->
+								</ul>
+							</form>
+						</section>
+						<section class="split contact">
+							<section class="alt">
+								<h3>Address</h3>
+								<p>1234 Somewhere Road #87257<br />
+								Nashville, TN 00000-0000</p>
+							</section>
+							<section>
+								<h3>Phone</h3>
+								<p><a href="#">(000) 000-0000</a></p>
+							</section>
+							<section>
+								<h3>Email</h3>
+								<p><a href="#">info@untitled.tld</a></p>
+							</section>
+							<section>
+								<h3>Social</h3>
+								<ul class="icons alt">
+									<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+								</ul>
+							</section>
+						</section>
+					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
